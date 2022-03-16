@@ -9,13 +9,15 @@ import Feature from './components/featuredInfo/FeaturedInfo'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Feature  /> 
-    <div className='divide'>
-      <Pie /> 
-    </div>
-    <div className='divide2'> 
-      <Barchart />
-    </div>
+    <Feature  />
+    <div className="contenedor dos-columnas">
+      <div>
+        <Pie /> 
+      </div>
+      <div> 
+        <Barchart />
+      </div>
+    </div> 
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -12,14 +12,14 @@ export default function FeaturedInfo() {
   const dataStore = useJsonStore({
     doRequest: {
       method: 'get',
-      url: 'http://localhost:3200/api/dashboard/dashboards/cards',
+      url: `${process.env.REACT_APP_REQUEST_PXP_ND}hq-nd/Dashboard/cards`,
       typeData: 'QUERY_STRING',
       withCredentials: true,
       data: {
         start:0, limit:20, sort:'name', dir: 'asc'
       },
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY0MzI4ODc0MDkwMSwiZXhwIjoxNjQzNjA0MTAwOTAxfQ.7GdJJIvCq9MFKn30VpzhzTltaodRAVDSF_9_NNRkEKc',
+        'Authorization': process.env.REACT_APP_TOKEN_PXP_ND,
         'Content-Type': 'application/json',
       }
     },
@@ -31,7 +31,7 @@ export default function FeaturedInfo() {
 if (data){
   return (
     <div className="featured">
-     
+
       <div className="featuredItem">
           <div className='container_icon'>
           <LocalAtmIcon className='icon_billed' />
@@ -91,12 +91,12 @@ if (data){
         <span className="featuredSub">Email sent this month</span>
       </div>
 
-      
+
     </div>
   );
 } else {
  return (<CircularProgress/>);
 }
-  
-  
+
+
 }
